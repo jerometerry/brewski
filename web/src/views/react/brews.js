@@ -1,3 +1,17 @@
+var Brew = React.createClass({displayName: "Brew",
+  render: function() {
+    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      React.createElement("div", {className: "Brew"}, 
+        React.createElement("h2", {className: "BrewAuthor"}, 
+          this.props.author
+        ), 
+        React.createElement("span", {dangerouslySetInnerHTML: {__html: rawMarkup}})
+      )
+    );
+  }
+});
+
 var BrewList = React.createClass({displayName: "BrewList",
   render: function() {
     var brewNodes = this.props.data.map(function (brew) {
@@ -15,17 +29,7 @@ var BrewList = React.createClass({displayName: "BrewList",
   }
 });
 
-var BrewForm = React.createClass({displayName: "BrewForm",
-  render: function() {
-    return (
-      React.createElement("div", {className: "BrewForm"}, 
-        "Hello, world! I am a BrewForm."
-      )
-    );
-  }
-});
-
-var BrewBox = React.createClass({displayName: "BrewBox",
+var BrewContainer = React.createClass({displayName: "BrewContainer",
   getInitialState: function() {
     return {data: []};
   },
@@ -47,24 +51,9 @@ var BrewBox = React.createClass({displayName: "BrewBox",
   },
   render: function() {
     return (
-      React.createElement("div", {className: "BrewBox"}, 
+      React.createElement("div", {className: "BrewContainers"}, 
         React.createElement("h1", null, "Brews"), 
-        React.createElement(BrewList, {data: this.state.data}), 
-        React.createElement(BrewForm, null)
-      )
-    );
-  }
-});
-
-var Brew = React.createClass({displayName: "Brew",
-  render: function() {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return (
-      React.createElement("div", {className: "Brew"}, 
-        React.createElement("h2", {className: "BrewAuthor"}, 
-          this.props.author
-        ), 
-        React.createElement("span", {dangerouslySetInnerHTML: {__html: rawMarkup}})
+        React.createElement(BrewList, {data: this.state.data})
       )
     );
   }
@@ -72,7 +61,8 @@ var Brew = React.createClass({displayName: "Brew",
 
 var apiUrl = brewski.config.apiUrl;
 var brewsUrl = apiUrl + "/api/brews"
+
 React.render(
-  React.createElement(BrewBox, {url: brewsUrl}),
+  React.createElement(BrewContainer, {url: brewsUrl}),
   document.getElementById('brews')
 );
