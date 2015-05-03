@@ -18,7 +18,7 @@ Docker Containers
 docker build -t jterry/brewski-api ./api
 ```
 
-###Building the Wweb Container
+###Building the Web Container
 
 ```
 docker build -t jterry/brewski-web ./web
