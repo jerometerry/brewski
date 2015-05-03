@@ -9,8 +9,8 @@ app.use('/bower', express.static('bower_components'));
 app.use('/jsx', express.static('public/js/build'));
 app.set('view engine', 'jade');
 
-function start(port) {
-  	routes.setup(router, "http://localhost:8080");
+function start(port, apiUrl) {
+  	routes.setup(router, apiUrl);
     app.listen(port);
 	exports.port = port;
 }
