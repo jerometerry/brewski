@@ -1,0 +1,6 @@
+--require should
+--require supertest
+--require chai
+--reporter spec
+--ui bdd
+--recursive

@@ -1,0 +1,27 @@
+{
+  "name": "brewski",
+  "version": "0.0.1",
+  "description": "App similar to untapped, but with recommendation engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "beer"
+  ],
+  "author": "Jerome Terry",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.12.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jterry/brewski.git"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1",
+    "supertest": "^0.15.0"
+  }
+}

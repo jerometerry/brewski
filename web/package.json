@@ -1,0 +1,19 @@
+{
+  "name": "brewski_web_client",
+  "version": "0.0.1",
+  "description": "Web client for berwski",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "beer"
+  ],
+  "author": "Jerome Terry",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.12.3",
+    "gulp-react": "^3.0.1",
+    "jade": "^1.9.2"
+  }
+}
