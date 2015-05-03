@@ -4,11 +4,11 @@ var routes     = require('./routes.js');
 
 var router = express.Router();
 app.use('/', router);
-app.use(express.static('bower_components'));
 app.use('/bower', express.static('bower_components'));
-app.use('/jsx', express.static('public/js/build'));
-app.use('/images', express.static('public/img'));
-app.use('/favicon.ico', express.static('public/img/favicon.ico'));
+app.use('/favicon.ico', express.static('img/favicon.ico'));
+app.use(express.static('img'));
+app.use(express.static('views'));
+app.use('/jsx', express.static('views/react'));
 app.set('view engine', 'ejs');
 
 function start(port, apiUrl) {

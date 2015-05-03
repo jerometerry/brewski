@@ -1,35 +1,35 @@
-var CommentList = React.createClass({
+var BrewList = React.createClass({
   render: function() {
-    var commentNodes = this.props.data.map(function (comment) {
+    var brewNodes = this.props.data.map(function (brew) {
       return (
-        <Comment author={comment.author}>
-          {comment.text}
-        </Comment>
+        <Brew author={brew.author}>
+          {brew.text}
+        </Brew>
       );
     });
     return (
-      <div className="commentList">
-        {commentNodes}
+      <div className="BrewList">
+        {brewNodes}
       </div>
     );
   }
 });
 
-var CommentForm = React.createClass({
+var BrewForm = React.createClass({
   render: function() {
     return (
-      <div className="commentForm">
-        Hello, world! I am a CommentForm.
+      <div className="BrewForm">
+        Hello, world! I am a BrewForm.
       </div>
     );
   }
 });
 
-var CommentBox = React.createClass({
+var BrewBox = React.createClass({
   getInitialState: function() {
     return {data: []};
   },
-  loadCommentsFromServer: function() {
+  loadBrewsFromServer: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -43,25 +43,25 @@ var CommentBox = React.createClass({
     });
   },
   componentDidMount: function() {
-    this.loadCommentsFromServer();
+    this.loadBrewsFromServer();
   },
   render: function() {
     return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <CommentList data={this.state.data} />
-        <CommentForm />
+      <div className="BrewBox">
+        <h1>Brews</h1>
+        <BrewList data={this.state.data} />
+        <BrewForm />
       </div>
     );
   }
 });
 
-var Comment = React.createClass({
+var Brew = React.createClass({
   render: function() {
     var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
     return (
-      <div className="comment">
-        <h2 className="commentAuthor">
+      <div className="Brew">
+        <h2 className="BrewAuthor">
           {this.props.author}
         </h2>
         <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
@@ -73,6 +73,6 @@ var Comment = React.createClass({
 var apiUrl = brewski.config.apiUrl;
 var brewsUrl = apiUrl + "/api/brews"
 React.render(
-  <CommentBox url={brewsUrl} />,
-  document.getElementById('content')
+  <BrewBox url={brewsUrl} />,
+  document.getElementById('brews')
 );
