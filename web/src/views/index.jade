@@ -1,6 +1,10 @@
 html
   head
     title!= title
+    script.
+      var brewski = brewski || {};
+      brewski.config = brewski.config || {};
+      brewski.config.apiUrl = '#{apiUrl}'
   body
     block content
         #content

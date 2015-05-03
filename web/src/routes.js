@@ -1,6 +1,9 @@
-function setup(router) {
+function setup(router, apiUrl) {
 	router.get('/', function(req, res){
-		res.render('index', { title: 'Hey', message: 'Hello there!'});
+		res.render('index', { 
+			title: 'Hey',
+			apiUrl: apiUrl
+		});
 	});
 }
 

@@ -70,7 +70,9 @@ var Comment = React.createClass({
   }
 });
 
+var apiUrl = brewski.config.apiUrl;
+var brewsUrl = apiUrl + "/api/brews"
 React.render(
-  <CommentBox url="http://localhost:8080/api/brews/" />,
+  <CommentBox url={brewsUrl} />,
   document.getElementById('content')
 );

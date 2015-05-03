@@ -10,7 +10,7 @@ app.use('/jsx', express.static('public/js/build'));
 app.set('view engine', 'jade');
 
 function start(port) {
-  	routes.setup(router);
+  	routes.setup(router, "http://localhost:8080");
     app.listen(port);
 	exports.port = port;
 }
