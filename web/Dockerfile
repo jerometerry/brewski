@@ -9,5 +9,4 @@ RUN npm install -g bower; \
 
 EXPOSE 8081
 
-CMD ["node", "index.js"]
-
+CMD ["node", "app.js"]
