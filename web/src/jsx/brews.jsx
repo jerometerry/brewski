@@ -1,12 +1,16 @@
 var Brew = React.createClass({
   render: function() {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
     return (
       <div className="Brew">
-        <h2 className="BrewAuthor">
-          {this.props.author}
+        <h2>
+          {this.props.name}
         </h2>
-        <span dangerouslySetInnerHTML={{__html: rawMarkup}} />
+        <h3>
+          {this.props.brewery}
+        </h3>
+        <span>
+          {this.props.style}
+        </span>
       </div>
     );
   }
@@ -16,9 +20,7 @@ var BrewList = React.createClass({
   render: function() {
     var brewNodes = this.props.data.map(function (brew) {
       return (
-        <Brew author={brew.author}>
-          {brew.text}
-        </Brew>
+        <Brew name={brew.name} brewery={brew.brewery} style={brew.style}></Brew>
       );
     });
     return (

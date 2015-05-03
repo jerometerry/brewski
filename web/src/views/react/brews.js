@@ -1,12 +1,16 @@
 var Brew = React.createClass({displayName: "Brew",
   render: function() {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
     return (
       React.createElement("div", {className: "Brew"}, 
-        React.createElement("h2", {className: "BrewAuthor"}, 
-          this.props.author
+        React.createElement("h2", null, 
+          this.props.name
         ), 
-        React.createElement("span", {dangerouslySetInnerHTML: {__html: rawMarkup}})
+        React.createElement("h3", null, 
+          this.props.brewery
+        ), 
+        React.createElement("span", null, 
+          this.props.style
+        )
       )
     );
   }
@@ -16,9 +20,7 @@ var BrewList = React.createClass({displayName: "BrewList",
   render: function() {
     var brewNodes = this.props.data.map(function (brew) {
       return (
-        React.createElement(Brew, {author: brew.author}, 
-          brew.text
-        )
+        React.createElement(Brew, {name: brew.name, brewery: brew.brewery, style: brew.style})
       );
     });
     return (
