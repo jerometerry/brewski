@@ -7,7 +7,9 @@ app.use('/', router);
 app.use(express.static('bower_components'));
 app.use('/bower', express.static('bower_components'));
 app.use('/jsx', express.static('public/js/build'));
-app.set('view engine', 'jade');
+app.use('/images', express.static('public/img'));
+app.use('/favicon.ico', express.static('public/img/favicon.ico'));
+app.set('view engine', 'ejs');
 
 function start(port, apiUrl) {
   	routes.setup(router, apiUrl);

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+        
+        <script>
+            var brewski = brewski || {};
+            brewski.config = brewski.config || {};
+            brewski.config.apiUrl = '<%= apiUrl %>'
+        </script>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>This is great</h1>
+            <p>Welcome to brewski</p>
+        </div>
+        
+        <div id="content"></div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+  
+    <script src='/bower/react/react.min.js'></script>
+    <script src='/bower/jquery/dist/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js'></script>
+    <script src='/jsx/helloworld.js'></script>  
+</body>
+</html>
