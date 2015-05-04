@@ -9,7 +9,7 @@ describe('routing', function() {
    describe('GET brews', function () {
       it('should return brew list', function (done) {
          request(url)
-            .get('/api/brews/')
+            .get('/api/beers/')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res){

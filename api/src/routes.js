@@ -1,6 +1,5 @@
 function setup(router) {
-	router.get('/brews/', function(req, res){
-		
+	router.get('/beers/', function(req, res){
 		res.json([
 			{ 
 				name:    "Rare Bourbon County Brand Stout", 
@@ -16,6 +15,20 @@ function setup(router) {
 				name:    "Proprietor's Bourbon County Brand Stout (2013)", 
 				brewery: "Goose Island Beer Co.", 
 				style:   "American Imperial / Double Stout"
+			}
+		]);
+	});
+	
+	router.get('/breweries/', function(req, res){
+		res.json([
+			{ 
+				name: "Goose Island Beer Co."
+			}, 
+			{ 
+				name: "Cigar City Brewing"
+			}, 
+			{ 
+				name: "Goose Island Beer Co."	
 			}
 		]);
 	});

@@ -1,7 +1,7 @@
-var Brew = React.createClass({displayName: "Brew",
+var Beer = React.createClass({displayName: "Beer",
   render: function() {
     return (
-      React.createElement("div", {className: "Brew"}, 
+      React.createElement("div", {className: "Beer"}, 
         React.createElement("h2", null, 
           this.props.name
         ), 
@@ -16,26 +16,26 @@ var Brew = React.createClass({displayName: "Brew",
   }
 });
 
-var BrewList = React.createClass({displayName: "BrewList",
+var BeerList = React.createClass({displayName: "BeerList",
   render: function() {
-    var brewNodes = this.props.data.map(function (brew) {
+    var beerNodes = this.props.data.map(function (beer) {
       return (
-        React.createElement(Brew, {name: brew.name, brewery: brew.brewery, style: brew.style})
+        React.createElement(Beer, {name: beer.name, brewery: beer.brewery, style: beer.style})
       );
     });
     return (
-      React.createElement("div", {className: "BrewList"}, 
-        brewNodes
+      React.createElement("div", {className: "BeerList"}, 
+        beerNodes
       )
     );
   }
 });
 
-var BrewContainer = React.createClass({displayName: "BrewContainer",
+var BeerContainer = React.createClass({displayName: "BeerContainer",
   getInitialState: function() {
     return {data: []};
   },
-  loadBrewsFromServer: function() {
+  loadBeersFromServer: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -49,22 +49,22 @@ var BrewContainer = React.createClass({displayName: "BrewContainer",
     });
   },
   componentDidMount: function() {
-    this.loadBrewsFromServer();
+    this.loadBeersFromServer();
   },
   render: function() {
     return (
-      React.createElement("div", {className: "BrewContainers"}, 
-        React.createElement("h1", null, "Brews"), 
-        React.createElement(BrewList, {data: this.state.data})
+      React.createElement("div", {className: "BeerContainers"}, 
+        React.createElement("h1", null, "Beers"), 
+        React.createElement(BeerList, {data: this.state.data})
       )
     );
   }
 });
 
 var apiUrl = brewski.config.apiUrl;
-var brewsUrl = apiUrl + "/api/brews"
+var beersUrl = apiUrl + "/api/beers"
 
 React.render(
-  React.createElement(BrewContainer, {url: brewsUrl}),
-  document.getElementById('brews')
+  React.createElement(BeerContainer, {url: beersUrl}),
+  document.getElementById('beers')
 );

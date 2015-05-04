@@ -1,7 +1,7 @@
-var Brew = React.createClass({
+var Beer = React.createClass({
   render: function() {
     return (
-      <div className="Brew">
+      <div className="Beer">
         <h2>
           {this.props.name}
         </h2>
@@ -16,26 +16,26 @@ var Brew = React.createClass({
   }
 });
 
-var BrewList = React.createClass({
+var BeerList = React.createClass({
   render: function() {
-    var brewNodes = this.props.data.map(function (brew) {
+    var beerNodes = this.props.data.map(function (beer) {
       return (
-        <Brew name={brew.name} brewery={brew.brewery} style={brew.style}></Brew>
+        <Beer name={beer.name} brewery={beer.brewery} style={beer.style}></Beer>
       );
     });
     return (
-      <div className="BrewList">
-        {brewNodes}
+      <div className="BeerList">
+        {beerNodes}
       </div>
     );
   }
 });
 
-var BrewContainer = React.createClass({
+var BeerContainer = React.createClass({
   getInitialState: function() {
     return {data: []};
   },
-  loadBrewsFromServer: function() {
+  loadBeersFromServer: function() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -49,22 +49,22 @@ var BrewContainer = React.createClass({
     });
   },
   componentDidMount: function() {
-    this.loadBrewsFromServer();
+    this.loadBeersFromServer();
   },
   render: function() {
     return (
-      <div className="BrewContainers">
-        <h1>Brews</h1>
-        <BrewList data={this.state.data} />
+      <div className="BeerContainers">
+        <h1>Beers</h1>
+        <BeerList data={this.state.data} />
       </div>
     );
   }
 });
 
 var apiUrl = brewski.config.apiUrl;
-var brewsUrl = apiUrl + "/api/brews"
+var beersUrl = apiUrl + "/api/beers"
 
 React.render(
-  <BrewContainer url={brewsUrl} />,
-  document.getElementById('brews')
+  <BeerContainer url={beersUrl} />,
+  document.getElementById('beers')
 );
