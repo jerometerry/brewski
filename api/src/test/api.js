@@ -5,13 +5,11 @@ var assert = require('chai').assert,
 
 var url = "http://localhost:8080";
 
-describe('routing', function() {  
-   describe('GET brews', function () {
-      it('should return brew list', function (done) {
+describe('API', function() {  
+   describe('GET beers', function () {
+      it('should return beer list', function (done) {
          request(url)
             .get('/api/beers/')
-            .expect(200)
-            .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res){
                assert(res)
                assert(res.text)
