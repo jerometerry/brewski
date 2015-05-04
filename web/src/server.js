@@ -1,15 +1,15 @@
 var express    = require("express");
-var app        = express();
-var routes     = require('./routes.js');
+var api        = require('./api.js');
 var staticData = require("./staticData.js");
+var app        = express();
 var router     = express.Router();
 
-app.use('/', router);
 app.set('view engine', 'ejs');
+app.use('/', router);
 staticData.init(app, express);
 
 function start(port, apiUrl) {
-  	routes.setup(router, apiUrl);
+  	api.setup(router, apiUrl);
     app.listen(port);
 	exports.port = port;
 }
